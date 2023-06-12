@@ -1,12 +1,13 @@
+import { SourcesType } from '../../../types/sourses-types';
 import './sources.css';
 
-class Sources {
-    draw(data) {
+class Sources<T> {
+    draw(data: SourcesType[]): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp');
 
-        data.forEach((item) => {
-            const sourceClone = sourceItemTemp.content.cloneNode(true);
+        data.forEach((item: SourcesType) => {
+            const sourceClone = sourceItemTemp!.content.cloneNode(true);
 
             sourceClone.querySelector('.source__item-name').textContent = item.name;
             sourceClone.querySelector('.source__item').setAttribute('data-source-id', item.id);
@@ -14,7 +15,7 @@ class Sources {
             fragment.append(sourceClone);
         });
 
-        document.querySelector('.sources').append(fragment);
+        document.querySelector('.sources')!.append(fragment);
     }
 }
 
