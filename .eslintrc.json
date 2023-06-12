@@ -2,8 +2,10 @@
     "plugins": ["prettier", "import"],
     "extends": [
         "plugin:prettier/recommended",
-        "prettier"
+        "prettier",
+        "plugin:@typescript-eslint/recommended"
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module"
@@ -17,5 +19,8 @@
         "no-debugger": "off",
         "no-console": 0,
         "class-methods-use-this": "off"
+    },
+    "eslint.options": {
+        "ignorePattern": "webpack.config.js"
     }
 }

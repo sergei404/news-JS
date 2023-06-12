@@ -12,10 +12,15 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: ['ts-loader'],
+            },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
     },
     output: {
         filename: 'index.js',
